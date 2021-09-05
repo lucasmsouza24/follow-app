@@ -25,6 +25,7 @@ CREATE TABLE post(
     id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT(300),
     date_time DATETIME NOT NULL,
+    tags VARCHAR(200),
     fk_user INT NOT NULL,
     FOREIGN KEY (fk_user) REFERENCES user(id)
 );

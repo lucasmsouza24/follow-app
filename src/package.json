@@ -1,11 +1,27 @@
 {
-  "name": "my-follow-app",
+  "name": "follow-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "author": "Lucas Mesquita",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "mssql": "^6.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "sequelize": "^5.21.2",
+    "tedious": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
