@@ -1,0 +1,29 @@
+.button-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    /* background-color: red; */
+}
+
+.button-box button {
+    width: 100px;
+    font-weight: bold;
+    background-color: var(--violet);
+    border-style: none;
+    color: white;
+    border: 1px solid var(--violet);
+}
+
+.button-box button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: var(--violet);
+}
+
+.button-box a {
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(47, 86, 170);
+    font-weight: bold;
+}

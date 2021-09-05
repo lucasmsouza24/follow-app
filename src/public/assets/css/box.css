@@ -1,0 +1,36 @@
+.form-box {
+    width: 400px;
+    height: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    border-radius: 3%;
+    box-shadow: 0px 0px 10px black;
+    background-color: rgb(245, 245, 245);
+
+    margin-top: 150px;
+}
+
+.form-box * {
+    padding: 10px;
+    margin: 10px;
+
+    font-size: 16px;
+}
+
+.form-box-title {
+    /* font-size: 18px; */
+    font-weight: bold;
+    color: var(--light-blue);
+}
+
+.form-box input:focus-visible {
+    outline: none;
+}

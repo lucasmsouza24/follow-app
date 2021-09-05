@@ -1,0 +1,9 @@
+:root {
+    --light-blue: rgb(47, 86, 170);
+    --violet: rgb(114, 114, 218);
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(114, 114, 218);
+}
