@@ -129,7 +129,7 @@ router.post('/auth', (req, res) => {
 });
 
 // get username by id
-router.post('/getUserNameById:id', (req, res) => {
+router.get('/getUserNameById:id', (req, res) => {
 	const id = req.params.id;
 
 	console.log("id: ", id);

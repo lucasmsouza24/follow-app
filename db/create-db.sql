@@ -6,7 +6,8 @@ CREATE TABLE user(
     id INT PRIMARY KEY auto_increment,
     email VARCHAR(45) NOT NULL UNIQUE,
     pwd VARCHAR(45) NOT NULL,
-    nick VARCHAR(45) NOT NULL UNIQUE
+    nick VARCHAR(45) NOT NULL UNIQUE,
+    profile_img VARCHAR(200) DEFAULT NULL
 ) auto_increment = 100;
 
 -- DESC user;

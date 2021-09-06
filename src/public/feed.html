@@ -12,21 +12,28 @@
 <body>
     
     <!-- navbar -->
-    <nav class="nav-bar">
-        <img src="./assets/img/follow-icon.png" alt="follow-icon">
+    <nav id="idNavBar" class="nav-bar"></nav>
 
-        <div class="link-group">
-            <div id="idUserItem" class="nav-item">Perfil</div>
-            <div class="nav-item active">Feed</div>
-            <div class="nav-item">Assuntos</div>
-            <div class="nav-item">Usuários</div>
-            <div class="nav-item getout" onclick="clearSession()">Sair</div>
+    <div class="container">
+
+        <div class="post-form">
+            <textarea id="idTextArea" name="txtname" rows="10" cols="50" maxlength="300"></textarea>
         </div>
-    </nav>
 
+        <div class="feed-posts">
+            <div class="post-card"></div>
+            <div class="post-card"></div>
+            <div class="post-card"></div>
+            <div class="post-card"></div>
+            <div class="post-card"></div>
+        </div>
+
+    </div>
 </body>
 </html>
 
 <script src="./assets/js/redirect/feed.js"></script>
+<script src="./assets/js/script/build-nav-bar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./assets/js/events/feed.js"></script>
 <script src="./assets/js/script/feed.js"></script>
