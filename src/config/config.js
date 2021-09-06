@@ -8,11 +8,11 @@ module.exports = {
         host: 'host',
         dialect: 'mssql',
         xuse_env_variable: 'DATABASE_URL',
-        dialectOptions: {
-            options: {
-                encrypt: true
-            }
-        },
+        // dialectOptions: {
+        //     options: {
+        //         encrypt: true
+        //     }
+        // },
         pool: {
             max: 5,
             min: 1,
@@ -23,17 +23,17 @@ module.exports = {
     
     // dev / banco local
     dev: {
-        username: 'username',
-        password: 'password',
-        database: 'database',
+        username: 'followappuser',
+        password: 'urubu100',
+        database: 'followapp',
         host: 'localhost',
         dialect: 'mysql',
         xuse_env_variable: 'DATABASE_URL',
-        dialectOptions: {
-            options: {
-                encrypt: true
-            }
-        },
+        // dialectOptions: {
+        //     options: {
+        //         encrypt: true
+        //     }
+        // },
         pool: {
             max: 5,
             min: 1,
