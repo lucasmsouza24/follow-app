@@ -5,8 +5,3 @@ if (id == null) {
 } else {
     // window.location.replace('./feed.html');
 }
-
-function clearSession() {
-    sessionStorage.removeItem('followapp-user');
-    window.location.replace('./login.html');
-}
