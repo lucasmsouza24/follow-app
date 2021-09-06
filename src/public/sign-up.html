@@ -11,19 +11,26 @@
 </head>
 <body>
     
-    <form class="form-box ">
+    <div class="form-box">
 
         <h1 class="form-box-title">Cadastro</h1>
 
-        <input type="text" placeholder="Nome">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
+        <input id="inputNick" name="nick" type="text" placeholder="@Apelido">
+        <input id="inputEmail" name="email" type="email" placeholder="Email">
+        <input id="inputPwd" name="pwd" type="password" placeholder="Senha">
         
         <div class="button-box">    
-            <button>Registrar</button>
+            <button onclick="btnSignup()">Registrar</button>
             <a href="login.html">Já tenho uma conta</a>
         </div>
-    </form>
+
+        <div id="idwarningbox">
+            
+        </div>
+    </div>
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./assets/js/user-requests.js"></script>

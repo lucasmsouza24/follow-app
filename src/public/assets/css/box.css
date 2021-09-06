@@ -39,3 +39,20 @@
 body {
     background-color: var(--yellow);
 }
+
+.warning-box {
+    background-color: var(--dark-grey);
+    width: 80%;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border: var(--dark-grey) 1px solid;
+}
+
+.fail {
+    background-color: rgb(233, 78, 78);
+}
+
+.success {
+    background-color: rgb(110, 255, 110);
+}
