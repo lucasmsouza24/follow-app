@@ -11,20 +11,29 @@
 </head>
 <body>
     
-    <form class="form-box" method="POST">
+    <!-- form box -->
+    <div class="form-box" method="POST">
 
         <div class="follow-circle">
             Entrar
         </div>
         
-        <input name="email" type="email" placeholder="Email">
-        <input name="pwd" type="password" placeholder="Senha">
+        <!-- inputs -->
+        <input id="inputEmail" name="email" type="email" placeholder="Email">
+        <input id="inputPwd" name="pwd" type="password" placeholder="Senha">
         
         <div class="button-box">    
-            <button formaction="" class="">Login</button>
+            <button onclick="btnLogin()" class="">Login</button>
             <a href="sign-up.html">Cadastre-se</a>
         </div>
-    </form>
+
+        <div id="idwarningbox">
+            
+        </div>
+    </div>
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./assets/js/user-requests.js"></script>

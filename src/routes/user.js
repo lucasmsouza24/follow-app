@@ -6,7 +6,7 @@ let sequelize = require('../models').sequelize;
 let env = process.env.NODE_ENV || 'development';
 
 // cria novo usuário no bando de dados
-router.post('/createUser', (req, res, next) => {
+router.post('/create', (req, res, next) => {
 	
 	// req params
 	nick = req.body.nick;
@@ -83,6 +83,50 @@ router.post('/createUser', (req, res, next) => {
 	}
 
 })
+
+router.post('/auth', (req, res) => {
+	// get req body
+	let email = req.body.email;
+	let pwd = req.body.pwd;
+
+	if (email === "" || pwd === "") {
+		// checking if fields are filled
+		res.json({
+			status: "error",
+			msg: "Preencha todos os campos"
+		});
+	} else {
+		// ready to query
+		let sql = `SELECT id FROM user WHERE 
+		email = '${email}' and pwd = MD5('${pwd}')`;
+
+		sequelize.query(sql, {
+			type: sequelize.QueryTypes.SELECT
+		})
+		.then(result => {
+
+			if (result.length == 1) {
+				// query found user
+				res.json({
+					status: "success",
+					id: result[0].id
+				});
+			} else {
+				// user not found
+				res.json({
+					status: "error",
+					msg: "Email ou senha inválidos."
+				})
+			}
+		})
+		.catch(err => {
+			res.json({
+				status: "error",
+				msg: "Email ou senha inválidos."
+			})
+		})
+	}
+});
 
 // exemplo de rota
 router.get('/testRoute', function(req, res, next) {
