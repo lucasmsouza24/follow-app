@@ -1,7 +1,7 @@
 .nav-bar {
     display: flex;
     width: 100%;
-    background-color: red;
+    background-color: var(--yellow);
 }
 .link-group {
     background-color: var(--yellow);
@@ -21,6 +21,7 @@
 
 .nav-bar img {
     height: 70px;
+    margin-left: 50px;
 }
 
 .nav-item {
@@ -46,4 +47,9 @@
 
 .active {
     border-bottom: 1px solid var(--dark-grey);
+}
+
+.getout:hover {
+    background-color: var(--dark-grey);
+    color: var(--yellow);
 }

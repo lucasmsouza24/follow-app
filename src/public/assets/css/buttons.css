@@ -9,21 +9,21 @@
 .button-box button {
     width: 100px;
     font-weight: bold;
-    background-color: var(--violet);
+    background-color: var(--dark-grey);
     border-style: none;
     color: white;
-    border: 1px solid var(--violet);
+    border: 1px solid var(--dark-grey);
 }
 
 .button-box button:hover {
     cursor: pointer;
     background-color: white;
-    color: var(--violet);
+    color: var(--dark-grey);
 }
 
 .button-box a {
     font-size: 18px;
     text-decoration: none;
-    color: rgb(47, 86, 170);
+    color: var(--dark-grey);
     font-weight: bold;
 }
