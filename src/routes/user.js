@@ -128,6 +128,44 @@ router.post('/auth', (req, res) => {
 	}
 });
 
+// get username by id
+router.post('/getUserNameById:id', (req, res) => {
+	const id = req.params.id;
+
+	console.log("id: ", id);
+	
+	// checking if id if null
+	if (id !== null && id !== undefined && id !== "") {
+		const sql = `SELECT nick FROM user WHERE id = ${id};`;
+
+		// queryng
+		sequelize.query(sql, {
+			type: sequelize.QueryTypes.SELECT
+		})
+		.then(result => {
+			res.json({
+				status: "ok",
+				data: {
+					nick: result[0].nick
+				}
+			});
+		})
+		.catch(err => {
+			res.json({
+				status: "error",
+				msg: "Usuário inexistente"
+			})
+		})
+
+	} else {
+		// error response
+		res.json({
+			status: "error",
+			msg: "Parametro ID não informado"
+		})
+	}
+})
+
 // exemplo de rota
 router.get('/testRoute', function(req, res, next) {
 
