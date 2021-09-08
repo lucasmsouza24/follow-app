@@ -16,21 +16,23 @@
 
     <div class="container">
 
-        <div class="post-form">
-            <textarea id="idTextArea" name="txtname" rows="10" cols="50" maxlength="300"></textarea>
+        <form class="post-form" method="POST" enctype="multipart/form-data">
+            <textarea id="idTextArea" name="content" rows="10" cols="50" maxlength="300" required></textarea>
 
             <div class="btn-container">
                 
                 <div class="box-input-file">
-                    <input class="input-file" id="idInputFile" type="file" name="Image" onchange="changeFile()" accept="image/*">
+                    <input class="input-file" id="idInputFile" type="file" name="file" onchange="changeFile()" accept="image/*">
                     <label class="label-input-file" for="idInputFile" id="idLabelInputFile">Adicionar Imagem</label>
                 </div>
 
-                <button class="publish-button" onclick="publish()">Publicar</button>
+                <button formaction="/posts/publish" class="publish-button">Publicar</button>
 
             </div>
 
-        </div>
+            <input type="hidden" name="fk_post" value="">
+            <input type="hidden" name="fk_user" id="idInputUser">
+        </form>
 
         <div class="feed-posts">
             <div class="post-card"></div>

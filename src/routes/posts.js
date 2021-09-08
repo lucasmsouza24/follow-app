@@ -4,14 +4,36 @@ let sequelize = require('../models').sequelize;
 
 let env = process.env || 'development';
 
+const multer = require('multer');
+express.json();
+
+// multer config
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, "./public/upload/posts/")
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date.now() + file.originalname);
+    }
+})
+
+const upload = multer({storage});
+
 // publish post route
-router.post('/publish', (req, res, nex) => {
+router.post('/publish', upload.single("file"), (req, res, next) => {
+
     // body
-    const content = req.body.content
-    const post_img = req.body.post_img
-    const date_time = req.body.datetime
-    const fk_post = req.body.fk_post
+    const content = req.body.content.replace("'", "''");
+    const date_time = getDateTime();
+    const fk_post = req.body.fk_post == '' ? null : req.body.fk_post;
     const fk_user = req.body.fk_user
+    let post_img = null;
+    
+    try {
+        post_img = "/posts/" + req.file.filename;
+    } catch (error) {
+        post_img = null;
+    }
 
     let sql = "";
 
@@ -30,10 +52,7 @@ router.post('/publish', (req, res, nex) => {
         type: sequelize.QueryTypes.INSERT
     })
     .then(result => {
-        res.json({
-            "status": "ok",
-            "msg": `Publicado com sucesso`
-        })
+        res.redirect("/");
     })
     .catch(err => {
         res.json({
@@ -42,6 +61,22 @@ router.post('/publish', (req, res, nex) => {
         })
     });
 
+
 });
+
+function getDateTime() {
+    // get date and time
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    let hh = today.getHours();
+    let MM = today.getMinutes();
+    let ss = today.getSeconds();
+    date = yyyy + '-' + mm + '-' + dd;
+    time = `${hh}:${MM}:${ss}`;
+    let datetime = `${date} ${time}`;
+    return datetime;
+}
 
 module.exports = router;

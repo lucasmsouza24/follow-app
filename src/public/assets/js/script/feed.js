@@ -15,3 +15,5 @@ axios.get(`/user/getUserNameById${id}`)
 .catch(err => {
     console.log(err);
 })
+
+idInputUser.value = sessionStorage.getItem("followapp-user");
