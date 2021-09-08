@@ -9,7 +9,8 @@ let logger = require('morgan');
 
 // rotas
 let indexRouter = require('./routes/index');
-let indexUser = require('./routes/user');
+let userRouter = require('./routes/user');
+let postsRouter = require('./routes/posts');
 
 let app = express();
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // iniciando rotas
 app.use('/', indexRouter);
-app.use('/user', indexUser);
+app.use('/user', userRouter);
+app.use('/posts', postsRouter);
 
 module.exports = app;
