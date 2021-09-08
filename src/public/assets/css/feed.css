@@ -24,8 +24,8 @@ body {
     margin-right: auto;
 
     border-radius: 3px;
-
-    background-color: var(--dark-grey);
+    border: 1px solid var(--dark-grey);
+    /* background-color: var(--dark-grey); */
     /* background-color: red; */
 }
 
@@ -33,15 +33,71 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 
     padding: 10px;
-    max-width: 100%;
+    width: 80%;
     line-height: 1.5;
     border-radius: 5px;
 
     background-color: black;
     color: white;
     resize: none;
+}
+.post-form textarea:focus-visible {
+    outline: none;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.box-input-file {
+    width: 30%;
+    max-width: 150px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+}
+
+.box-input-file:hover {
+    background-color: black;
+    color: white;
+}
+
+.box-input-file, .box-input-file *:hover {
+    cursor: pointer;
+}
+
+.input-file {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.publish-button {
+    padding: 5px 15px;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 3px;
+
+    background-color: rgb(28, 75, 28);
+    color: white;
+}
+
+.publish-button:hover {
+    cursor: pointer;
+
+    background-color: white;
+    color: rgb(28, 75, 28);
 }
 
 .feed-posts {

@@ -18,6 +18,18 @@
 
         <div class="post-form">
             <textarea id="idTextArea" name="txtname" rows="10" cols="50" maxlength="300"></textarea>
+
+            <div class="btn-container">
+                
+                <div class="box-input-file">
+                    <input class="input-file" id="idInputFile" type="file" name="Image" onchange="changeFile()" accept="image/*">
+                    <label class="label-input-file" for="idInputFile" id="idLabelInputFile">Adicionar Imagem</label>
+                </div>
+
+                <button class="publish-button">Publicar</button>
+
+            </div>
+
         </div>
 
         <div class="feed-posts">

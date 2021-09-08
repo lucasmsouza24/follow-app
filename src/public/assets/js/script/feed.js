@@ -6,7 +6,7 @@ axios.get(`/user/getUserNameById${id}`)
     if (response.status == "ok") {
         // success request
         idUserItem.innerHTML = "@" + response.data.nick;
-        idTextArea.setAttribute('placeholder', `followapp/${response.data.nick}>`);
+        idTextArea.setAttribute('placeholder', `C:\\followapp\\${response.data.nick}>`);
     } else {
         // error request
         console.log(response.msg);
