@@ -64,6 +64,22 @@ router.post('/publish', upload.single("file"), (req, res, next) => {
 
 });
 
+// get explorer posts
+router.post('/explorer-posts', (req, res, next) => {
+
+    let sql = "SELECT u.nick, p.content, p.post_img, (SELECT count(l.id) FROM likes AS l WHERE l.fk_post = p.id) AS 'likes', p.date_time FROM post AS p INNER JOIN user AS u ON u.id = p.fk_user;"
+
+    // querying
+    sequelize.query(sql, { type: sequelize.QueryTypes.SELECT})
+    .then(result => {
+        res.json(result);
+    })
+    .catch(err => {
+        res.json(err);
+    })
+
+})
+
 function getDateTime() {
     // get date and time
     let today = new Date();
