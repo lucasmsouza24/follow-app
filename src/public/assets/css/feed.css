@@ -85,7 +85,7 @@ body {
 
 .publish-button {
     padding: 5px 15px;
-    font-size: 18px;
+    /* font-size: 18px; */
     border-style: none;
     border-radius: 3px;
 
@@ -113,57 +113,4 @@ body {
 
     /* border: 2px white solid; */
     /* background-color: green; */
-}
-
-.post-card {
-    width: 80%;
-    /* height: 200px; */
-    border-radius: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    border: 2px var(--dark-grey) solid;
-    color: white;
-}
-
-.post-card-top, .post-card-content, .post-card-bottom {
-    /* border: 1px red solid; */
-    border-radius: 20px;
-}
-
-.post-card .post-card-top-img {
-    max-width: 80px;
-    border-radius: 50%;
-}
-
-.post-card-content-img {
-    background-color: grey;
-}
-
-.post-card-top {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.post-card-content-text {
-    padding: 10px;
-    width: 100%;
-}
-
-.post-card-content-img {
-    display: block;
-    padding: 10px;
-    margin-top: 10px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.post-card-bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
 }
