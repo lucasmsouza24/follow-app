@@ -9,6 +9,7 @@
     border: 2px var(--dark-grey) solid;
     color: white;
     padding: 15px;
+    background-color: rgb(19, 19, 19);
 }
 
 .post-card-top, .post-card-content, .post-card-bottom {
@@ -33,6 +34,20 @@
     /* background-color: red; */
     text-align: right;
     padding-right: 50px;
+}
+
+.post-card-top-user {
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.post-card-top-date {
+    font-size: 0.9em;
+}
+
+.post-card-top-user:hover {
+    opacity: 0.9;
 }
 
 /* content */
@@ -79,14 +94,15 @@
 }
 
 .post-card-bottom-stars, .post-card-bottom-comments {
-    background-color: grey;
+    /* background-color: grey; */
     width: 100px;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.1em;
     text-align: center;
+    border: 1px white solid;
 }
 
 .post-card-bottom-stars:hover, .post-card-bottom-comments:hover {
