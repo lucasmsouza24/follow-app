@@ -24,7 +24,7 @@ router.post('/publish', upload.single("file"), (req, res, next) => {
 
     // body
     const content = req.body.content.replace("'", "''");
-    const date_time = getDateTime();
+    // const date_time = getDateTime();
     const fk_post = req.body.fk_post == '' ? null : req.body.fk_post;
     const fk_user = req.body.fk_user
     let post_img = null;
@@ -39,13 +39,13 @@ router.post('/publish', upload.single("file"), (req, res, next) => {
 
     if (post_img == undefined || post_img == null) {
         sql = `INSERT INTO post(content, date_time, fk_post, fk_user) VALUES
-        ('${content}', '${date_time}', ${fk_post}, ${fk_user})`;
-        console.log("null");
+        ('${content}', NOW(), ${fk_post}, ${fk_user})`;
+        // console.log("null");
     } else {
         // querying
         sql = `INSERT INTO post(content, post_img, date_time, fk_post, fk_user) VALUES
-        ('${content}', '${post_img}', '${date_time}', ${fk_post}, ${fk_user})`;
-        console.log("not null")
+        ('${content}', '${post_img}', NOW(), ${fk_post}, ${fk_user})`;
+        // console.log("not null")
     }
         
     sequelize.query(sql, {
@@ -67,11 +67,18 @@ router.post('/publish', upload.single("file"), (req, res, next) => {
 // get explorer posts
 router.post('/explorer-posts', (req, res, next) => {
 
-    let sql = "SELECT u.nick, p.content, p.post_img, (SELECT count(l.id) FROM likes AS l WHERE l.fk_post = p.id) AS 'likes', p.date_time FROM post AS p INNER JOIN user AS u ON u.id = p.fk_user;"
+    console.log("user: ", req.body.userid)
+
+    let sql = `SELECT p.id, u.nick, u.id as 'fk_user', u.profile_img, p.post_img, p.date_time, p.content, p.post_img, (SELECT l2.id FROM likes as l2 WHERE l2.fk_post = p.id AND l2.fk_user = ${req.body.userid}) as 'liked', (SELECT count(l.id) FROM likes AS l WHERE l.fk_post = p.id) AS 'likes', p.date_time FROM post AS p INNER JOIN user AS u ON u.id = p.fk_user ORDER BY date_time DESC LIMIT 20;`
 
     // querying
     sequelize.query(sql, { type: sequelize.QueryTypes.SELECT})
     .then(result => {
+        for (let post of result) {
+            post.date_time = post.date_time.toISOString().slice(0, 10);
+            post.liked = post.liked != null
+            // console.log(post.date_time)
+        }
         res.json(result);
     })
     .catch(err => {
