@@ -2,4 +2,6 @@
 node_modules
 package-lock.json
 
-/src/public/upload/posts/*
+/src/public/upload/posts/*.png
+/src/public/upload/posts/*.jpg
+/src/public/upload/posts/*.jpeg
