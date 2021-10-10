@@ -53,15 +53,25 @@ function sendLike(postid) {
     // console.log(postSpan)
 
     if (postImg.getAttribute("src") === "./assets/img/starred.png") {
+
+        // changing img src and adding postspan
         postImg.src = "./assets/img/star.png";
         postSpan.innerHTML = Number(postSpan.innerHTML) - 1;
+
+        // request to dislike
+        axios.post('/posts/dislike', { 
+            postid,
+            userid: sessionStorage.getItem('followapp-user')
+        });
     } else {
+        // changing img src and adding postspan
         postImg.src = "./assets/img/starred.png";
         postSpan.innerHTML = Number(postSpan.innerHTML) + 1;
 
         // request to send like
         axios.post('/posts/like', { 
             postid,
-            userid: sessionStorage.getItem('followapp-user')});
+            userid: sessionStorage.getItem('followapp-user')
+        });
     };
 }

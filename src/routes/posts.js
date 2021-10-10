@@ -102,4 +102,18 @@ router.post('/like', (req, res, next) => {
     sequelize.query(sql, {type: sequelize.QueryTypes.INSERT})
 })
 
+// dislike
+router.post('/dislike', (req, res, next) => {
+
+    // attributes
+    let user = req.body.userid;
+    let post = req.body.postid;
+
+    // sql query
+    const sql = `DELETE FROM likes WHERE fk_user = ${user} AND fk_post = ${post};`;
+
+    // querying
+    sequelize.query(sql, {type: sequelize.QueryTypes.DELETE})
+})
+
 module.exports = router;
