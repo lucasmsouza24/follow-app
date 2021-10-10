@@ -36,9 +36,9 @@ function buildPostCard(card) {
         <div class="post-card-bottom">
             <!-- star -->
             <div class="post-card-bottom-stars card-button">
-                <div class="post-card-bottom-stars-content">
-                    <img src="./assets/img/${star_image}" alt="">
-                    <span>${card.likes}</span>
+                <div class="post-card-bottom-stars-content" onclick="sendLike(${card.id})">
+                    <img id="idPostLikeImg${card.id}" src="./assets/img/${star_image}" alt="">
+                    <span id="idPostLikeSpan${card.id}">${card.likes}</span>
                 </div>
             </div>
             <!-- commnent -->
@@ -47,11 +47,16 @@ function buildPostCard(card) {
     `;
 }
 
-// querying all posts
-axios.post('/posts/explorer-posts/', { userid: sessionStorage.getItem('followapp-user') })
-.then(result => {
-    
-    // itering each result to build all cards
-    result.data.forEach(element => buildPostCard(element));
+function sendLike(postid) {
+    postImg = document.querySelector(`#idPostLikeImg${postid}`)
+    postSpan = document.querySelector(`#idPostLikeSpan${postid}`)
+    console.log(postSpan)
 
-})
+    if (postImg.getAttribute("src") === "./assets/img/starred.png") {
+        postImg.src = "./assets/img/star.png";
+        postSpan.innerHTML = Number(postSpan.innerHTML) - 1;
+    } else {
+        postImg.src = "./assets/img/starred.png";
+        postSpan.innerHTML = Number(postSpan.innerHTML) + 1;
+    };
+}

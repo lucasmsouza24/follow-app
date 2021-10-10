@@ -17,7 +17,15 @@ function buildContent(type) {
 }
 
 function buildExplorer() {
-    console.log("buildExplorer");
+
+     // querying all posts
+     axios.post('/posts/explorer-posts/', { userid: sessionStorage.getItem('followapp-user') })
+     .then(result => {
+         
+         // itering each result to build all cards
+         result.data.forEach(element => buildPostCard(element));
+ 
+     })
 }
 
 function buildFeed() {
