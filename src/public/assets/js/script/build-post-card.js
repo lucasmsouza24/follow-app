@@ -50,7 +50,7 @@ function buildPostCard(card) {
 function sendLike(postid) {
     postImg = document.querySelector(`#idPostLikeImg${postid}`)
     postSpan = document.querySelector(`#idPostLikeSpan${postid}`)
-    console.log(postSpan)
+    // console.log(postSpan)
 
     if (postImg.getAttribute("src") === "./assets/img/starred.png") {
         postImg.src = "./assets/img/star.png";
@@ -58,5 +58,10 @@ function sendLike(postid) {
     } else {
         postImg.src = "./assets/img/starred.png";
         postSpan.innerHTML = Number(postSpan.innerHTML) + 1;
+
+        // request to send like
+        axios.post('/posts/like', { 
+            postid,
+            userid: sessionStorage.getItem('followapp-user')});
     };
 }

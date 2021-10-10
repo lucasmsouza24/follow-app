@@ -87,19 +87,19 @@ router.post('/explorer-posts', (req, res, next) => {
 
 })
 
-function getDateTime() {
-    // get date and time
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0');
-    let yyyy = today.getFullYear();
-    let hh = today.getHours();
-    let MM = today.getMinutes();
-    let ss = today.getSeconds();
-    date = yyyy + '-' + mm + '-' + dd;
-    time = `${hh}:${MM}:${ss}`;
-    let datetime = `${date} ${time}`;
-    return datetime;
-}
+// like
+router.post('/like', (req, res, next) => {
+
+    // attributes
+    let user = req.body.userid;
+    let post = req.body.postid;
+
+    // sql query
+    const sql = `INSERT INTO likes(fk_user, fk_post) VALUES
+    (${user}, ${post}) `;
+
+    // querying
+    sequelize.query(sql, {type: sequelize.QueryTypes.INSERT})
+})
 
 module.exports = router;
